@@ -1,0 +1,98 @@
+{
+  "name": "ssab",
+  "displayName": "ssab",
+  "description": "Sql Server Chat Bot by Andy Bevan",
+  "version": "0.0.1",
+  "publisher": "Andy Bevan",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/needs-updating"
+  },
+  "categories": [
+    "Other"
+  ],
+  "extensionDependencies": [
+    "github.copilot-chat"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "dba.ssab",
+        "name": "ssab",
+        "description": "Let's have some fun with Postgres",
+        "commands": [
+          {
+            "name": "schema",
+            "description": "Helps you build out your database schema."
+          },
+          {
+            "name": "conn",
+            "description": "Change the connection"
+          },
+          {
+            "name": "help",
+            "description": "How to use this extension"
+          },
+          {
+            "name": "out",
+            "description": "Set the output format"
+          },
+          {
+            "name": "show",
+            "description": "Shows all tables. Or, pass in a table name to see the columns"
+          },
+          {
+            "name": "fix",
+            "description": "Fixes the last error encountered"
+          }
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "ssab.run",
+        "title": "Execute the current query"
+      },
+      {
+        "command": "ssab.print",
+        "title": "Show the current SQL commands in the editor."
+      },
+      {
+        "command": "out",
+        "title": "Set the output format"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.3",
+    "@types/mocha": "^10.0.10",
+    "@types/mssql": "^9.1.6",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2",
+    "vscode-test": "^1.6.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "json-2-csv": "^5.5.8",
+    "mssql": "^11.0.1"
+  }
+}
